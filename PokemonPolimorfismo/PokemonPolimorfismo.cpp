@@ -120,11 +120,8 @@ public:
         this->health += healPoints;
     }
 
-    virtual void Attack(Pokemon* oponent) {
-        if (oponent->GetWeakness() == this->type)
-            oponent->GetHitted(attack * 2);
-
-        else oponent->GetHitted(attack);
+    virtual void Attack(Pokemon* oponent) { 
+        oponent->GetHitted(attack);
     }
     void GetHitted(float damage) {
         if (this->health > damage) {
@@ -649,4 +646,8 @@ int main()
             break;
         }
     }
+
+    delete(firePokemons); delete(waterPokemons); delete(plantPokemons); delete(electricPokemons);
+    delete(playerTeam); delete(enemyTeam);
+    delete(playerActivePokemon); delete(enemyActivePokemon);
 }
